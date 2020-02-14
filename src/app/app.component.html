@@ -1,0 +1,19 @@
+<h1>To Do</h1>
+
+<div class="Item">
+  <input type="text" #box (change)="onChange(box.value)" [value]="text"/>
+  <button (click)="onClick()">
+    增加
+  </button>
+</div>
+
+<div *ngFor="let i of list">
+  <div class="Item">
+    <input type="text" [value]="i.value"/>
+    <button (click)="onRemove(i.id)">
+      刪除
+    </button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
