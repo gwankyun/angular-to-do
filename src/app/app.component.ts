@@ -17,6 +17,11 @@ export class AppComponent {
   index: number = 0;
 
   onClick() {
+    if (this.text === '') {
+      alert('內容不能為空');
+      return;
+    }
+
     let item = new Item();
     item.id = this.index;
     item.value = this.text;

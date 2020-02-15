@@ -2,6 +2,7 @@ input {
   height: 30px;
   box-sizing: border-box;
   vertical-align: top;
+  margin-right: 2px;
 }
 
 button {
