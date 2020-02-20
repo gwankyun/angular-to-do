@@ -1,8 +1,8 @@
 <h1>待辦</h1>
 
 <div class="Item">
-  <input type="text" #box (change)="onChange(box.value)" [value]="text"/>
-  <button (click)="onClick()">
+  <input type="text" #box/>
+  <button (click)="onAdd(box)">
     增加
   </button>
 </div>

@@ -16,17 +16,17 @@ export class AppComponent {
   text: string = '';
   index: number = 0;
 
-  onClick() {
-    if (this.text === '') {
+  onAdd(element: HTMLInputElement) {
+    if (element.value === '') {
       alert('內容不能為空');
       return;
     }
 
     let item = new Item();
     item.id = this.index;
-    item.value = this.text;
+    item.value = element.value;
     this.list.push(item);
-    this.text = '';
+    element.value = '';
     this.index++;
   }
 
