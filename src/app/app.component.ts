@@ -15,6 +15,7 @@ export class AppComponent {
   list: Item[] = [];
   text: string = '';
   index: number = 0;
+  current: Item;
 
   onAdd(element: HTMLInputElement) {
     if (element.value === '') {
@@ -40,5 +41,9 @@ export class AppComponent {
     if (idx !== -1) {
       this.list.splice(idx, 1);
     }
+  }
+
+  onSelect(i: Item) {
+    this.current = i;
   }
 }

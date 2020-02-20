@@ -1,5 +1,10 @@
 <h1>待辦</h1>
 
+<div *ngIf="current">
+  <div>id: {{ current.id }}</div>
+  <div>value: {{ current.value }}</div>
+</div>
+
 <div class="Item">
   <input type="text" #box/>
   <button (click)="onAdd(box)">
@@ -8,7 +13,7 @@
 </div>
 
 <div *ngFor="let i of list">
-  <div class="Item">
+  <div class="Item" (click)="onSelect(i)">
     <input type="text" [value]="i.value"/>
     <button (click)="onRemove(i.id)">
       刪除
