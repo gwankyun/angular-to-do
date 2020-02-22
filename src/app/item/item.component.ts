@@ -15,8 +15,18 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onChange(value: string) {
+    this.item.value = value;
+  }
+
   onRemove(id: number) {
     this.itemService.removeItem(id);
+  }
+
+  onSetTop(current: Item) {
+    const c = current.clone();
+    this.itemService.removeItem(current.id);
+    this.itemService.data.unshift(c);
   }
 
 }

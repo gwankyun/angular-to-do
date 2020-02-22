@@ -27,4 +27,8 @@ export class ItemService {
       this.data.splice(idx, 1);
     }
   }
+
+  getItem(id: number): Item {
+    return this.data[id];
+  }
 }
