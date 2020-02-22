@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-
-class Item {
-  id: number;
-  value: string;
-}
+import { Item } from './item';
+import { ItemService } from './item.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +9,22 @@ class Item {
 })
 export class AppComponent {
   title = 'ng-app';
-  list: Item[] = [];
+  list: Item[];
   text: string = '';
-  index: number = 0;
+  // index: number = 0;
   current: Item;
+
+  constructor(private itemService: ItemService) {
+
+  }
+
+  getItemAarray(): void {
+    this.list = this.itemService.getItemArray();
+  }
+
+  ngOnInit() {
+    this.getItemAarray();
+  }
 
   onAdd(element: HTMLInputElement) {
     if (element.value === '') {
@@ -24,11 +33,11 @@ export class AppComponent {
     }
 
     let item = new Item();
-    item.id = this.index;
     item.value = element.value;
-    this.list.push(item);
+
+    this.itemService.addItem(item);
+
     element.value = '';
-    this.index++;
   }
 
   onChange(value: string) {
@@ -36,11 +45,7 @@ export class AppComponent {
   }
 
   onRemove(id: number) {
-    let idx = this.list.findIndex(i => i.id === id);
-
-    if (idx !== -1) {
-      this.list.splice(idx, 1);
-    }
+    this.itemService.removeItem(id);
   }
 
   onSelect(i: Item) {
