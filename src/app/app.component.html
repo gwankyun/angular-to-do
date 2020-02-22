@@ -14,10 +14,7 @@
 
 <div *ngFor="let i of list">
   <div class="Item" (click)="onSelect(i)">
-    <input type="text" [value]="i.value"/>
-    <button (click)="onRemove(i.id)">
-      刪除
-    </button>
+    <app-item [item]="i"></app-item>
   </div>
 </div>
 
