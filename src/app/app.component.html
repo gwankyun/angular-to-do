@@ -12,10 +12,12 @@
   </button>
 </div>
 
-<div *ngFor="let i of list">
-  <div class="Item" (click)="onSelect(i)">
-    <app-item [item]="i"></app-item>
-  </div>
-</div>
+<ul>
+  <li *ngFor="let i of list">
+    <div class="Item" (click)="onSelect(i)">
+      <app-item [item]="i"></app-item>
+    </div>
+  </li>
+</ul>
 
 <router-outlet></router-outlet>
