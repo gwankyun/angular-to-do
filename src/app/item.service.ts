@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class ItemService {
 
   constructor() { }
 
-  getItemArray(): Item[] {
-    return this.data;
+  getItemArray(): Observable<Item[]> {
+    return of(this.data);
   }
 
   addItem(item: Item): void {

@@ -19,7 +19,9 @@ export class AppComponent {
   }
 
   getItemAarray(): void {
-    this.list = this.itemService.getItemArray();
+    this.itemService.getItemArray().subscribe(
+      list => this.list = list
+    );
   }
 
   ngOnInit() {
